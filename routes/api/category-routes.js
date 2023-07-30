@@ -58,12 +58,13 @@ router.put("/:id", async (req, res) => {
     if (!categoryData) {
       res
         .status(404)
-        .json({ message: `No category found with id: ${req.body.id}` });
+        .json({ message: `No category found with id: ${req.params.id}` });
       return;
     }
 
-    res.status(200).json(data);
+    res.status(200).json(categoryData);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 });
